@@ -1,9 +1,9 @@
 import React from 'react';
 import './PostAddForm.css';
 
-const PostAddForm = () => {
+const PostAddForm = ({ onAdd }) => {
     return (
-        <form className="bottom-panel d-flex">
+        <div className="bottom-panel d-flex">
             <input
                 type="text"
                 placeholder="Parašykite ką galvojate dabar"
@@ -11,9 +11,10 @@ const PostAddForm = () => {
             />
             <button
                 type="submit"
-                className="btn btn-outline-secondary">
-            Pridėti</button>
-        </form>
+                className="btn btn-outline-secondary"
+                onClick={() => onAdd('text from input')}>
+                Pridėti</button>
+        </div>
     )
 }
 
