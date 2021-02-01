@@ -1,0 +1,10 @@
+.btn-group {
+    padding: 15px 0;
+    margin-left: 5px;
+}
+
+.btn-group .btn {
+    width: auto;
+    flex-grow: 1;
+    margin-right: 5px;
+}
