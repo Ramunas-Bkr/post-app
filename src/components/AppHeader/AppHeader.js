@@ -19,11 +19,12 @@ const Header = styled.div`
     }
 `
 
-const AppHeader = () => {
+const AppHeader = ({ liked, allPosts }) => {
     return (
         <Header>
             <h1>Vardenis Pavardenis</h1>
-            <h2>5 įrašai, iš jų patiko 2 įrašai</h2>
+            <h2>{allPosts} {allPosts === 1 || allPosts % 1 === 1 ? `įrašas` : allPosts > 9 && allPosts < 21 ? `įrašų` : `įrašai`},
+                iš jų patiko {liked} {liked === 1 || liked % 1 === 1 ? `įrašas` : liked > 9 && liked < 21 ? `įrašų` : `įrašai`}</h2>
         </Header>
     )
 }

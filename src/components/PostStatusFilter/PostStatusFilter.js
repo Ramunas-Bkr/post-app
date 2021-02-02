@@ -1,15 +1,31 @@
-import React from 'react';
-import { Button } from 'reactstrap';
+import React, { Component } from 'react';
 import './PostStatusFilter.css';
+export default class PostStatusFilter extends Component {
 
-const PostStatusFilter = () => {
-    return (
-        <div className="btn-group d-flex">
-            <Button color="info">Visi</Button>
-            <button className="btn btn-info">Visi</button>
-            <button className="btn btn-outline-secondary">Patikę</button>
-        </div>
-    )
+    constructor() {
+        super();
+        this.buttons = [
+            { name: 'all', label: 'Visi' },
+            { name: 'like', label: 'Patikę' }
+        ]
+    }
+    render() {
+        const buttons = this.buttons.map(({ name, label }) => {
+            const active = this.props.filter === name;
+            const activeClass = active ? 'btn-info' : 'btn-outline-secondary';
+            return (
+                <button
+                    className={`btn ${activeClass}`}
+                    key={name} color="info"
+                    onClick={() => this.props.onFilterSelect(name)}>
+                    { label}
+                </button >
+            )
+        })
+        return (
+            <div className="btn-group d-flex" >
+                { buttons}
+            </div>
+        )
+    }
 }
-
-export default PostStatusFilter
